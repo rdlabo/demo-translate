@@ -1,0 +1,20 @@
+<html lang="ja">
+    <head>
+        <meta charset="utf-8"/>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="hello">Hello World!!</div>
+        <button onClick="trans('ja')">日本語化</button>
+        <button onClick="trans('zh-CN')">台湾語化</button>
+        <script>
+            function trans(lang) {
+              var targetDOM = document.querySelector('#hello');
+              $.get("translate/" + lang + "/hello.json", {
+              }, function(data) {
+                targetDOM.innerText = data['Hello World!!'];
+              });
+            }
+        </script>
+    </body>
+</html>
